@@ -10,3 +10,7 @@ Thumbs.db
 *.pdf
 yarn.lock
 npm-debug.log*
+
+nbproject/private/private.properties
+nbproject/project.properties
+nbproject/project.xml
