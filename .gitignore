@@ -14,3 +14,5 @@ npm-debug.log*
 nbproject/private/private.properties
 nbproject/project.properties
 nbproject/project.xml
+.htaccess
+nbproject/private/private.xml
