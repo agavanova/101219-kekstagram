@@ -36,8 +36,7 @@ function getRandomComments(min, max) { // случайная сортировк�
 
 function getDescriptionPhoto() {
   var descriptionPhoto = []; // массив рандомно созданных обьектов
-  var randomComments = []; // массив рандомных комментариев
-  
+  var randomComments = []; // массив рандомных комментариев  
   for (var i = 0; i <= randomUrl.length; i++) {
     var randomNumber = getRandomComments(0, userComments.length - 1);
     var comments1 = userComments[randomNumber];
