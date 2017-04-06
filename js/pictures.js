@@ -26,19 +26,18 @@ photos.forEach(function (photo) {
 
 photoList.appendChild(fragmentPhotos); // вставляем фрагмент на страницу
 
-document.querySelector('.upload-overlay').classList.add('invisible'); // скрываем форму кадрирования изображения 
+document.querySelector('.upload-overlay').classList.add('invisible'); // скрываем форму кадрирования изображения
 galleryOverlay.querySelector('.gallery-overlay-image').src = photos[0].url; // записываем урл фотографии по дефолту
 galleryOverlay.querySelector('.likes-count').textContent = photos[0].likes; // записываем количество лайков по дефолту
 galleryOverlay.querySelector('.comments-count').innerHTML = photos[0].comments.length; // записываем комментарии к фото по дефолту
 // Вставка комментариев в модальнике
-//var commentListNode = galleryOverlay.querySelector('.gallery-overlay-controls-comments');
-//photos[0].comments.forEach(function(comment) {
+// var commentListNode = galleryOverlay.querySelector('.gallery-overlay-controls-comments');
+// photos[0].comments.forEach(function(comment) {
 //  var commentNode = document.createElement('div');
 //  commentNode.classList.add('picture-comment');
 //  commentNode.innerText = comment;
-//  
 //  commentListNode.insertBefore(commentNode, commentListNode.querySelector('.comments-count'));
-//});
+// });
 
 galleryOverlay.classList.remove('invisible'); // открываем фото по дефолту
 
@@ -74,9 +73,9 @@ function generatePhotos() {
   }
   return descriptionPhotos;
 }
-/**
+/*
  * @param {Object} photo
- * @returns {HTMLElement}
+ * @return {HTMLElement}
  */
 function renderPhoto(photo) { // в качестве аргумента получаем обьект со именами url likes comments
   var photoElement = pictureTemplate.cloneNode(true); // копируем структуру шаблона со всеми потомками
@@ -88,7 +87,7 @@ function renderPhoto(photo) { // в качестве аргумента полу
   return photoElement;
 }
 
-/**
+/*
  * @return {Array}
  */
 function getRandomComments() {
