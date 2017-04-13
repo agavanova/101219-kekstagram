@@ -72,7 +72,6 @@ openModalWindowPhoto(photoList, renderPopupPhoto); // передаем пара�
 function openModalWindowPhoto(element, cb) { // на входе элемент обертка для всех фото, второй - функция прорисовки модального окна с фоткой
   element.addEventListener('click', function (evt) {
     evt.preventDefault();
-    
     var target = evt.target;
     if (target.nodeName === 'IMG') {
       var idPhoto = target.dataset;
@@ -80,7 +79,7 @@ function openModalWindowPhoto(element, cb) { // на входе элемент �
       cb(idPhoto);
       openModal();
     } else if (target.className === 'picture') {
-      var idPhoto = target.firstElementChild.dataset;
+      idPhoto = target.firstElementChild.dataset;
       idPhoto = idPhoto.id;
       cb(idPhoto);
       openModal();
@@ -179,8 +178,8 @@ function renderPhoto(photo, id) { // в качестве аргумента по
   photoElement.querySelector('.picture-likes').textContent = photo.likes; // записываем количество лайков
   photoElement.querySelector('.picture-comments').textContent = photo.comments.length;
   photoElement.querySelector('IMG').setAttribute('data-id', id);
-  //photoElement.querySelector('IMG').setAttribute('tabindex', 0);
-
+  // photoElement.querySelector('IMG').setAttribute('tabindex', 0);
+  
   return photoElement;
 }
 
