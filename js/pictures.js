@@ -82,7 +82,7 @@ uploadFilterControls.addEventListener('click', function (evt) {
   filterImagePreview.classList.add(className);
 });
 
-document.querySelector('#upload-filter').addEventListener('click', function (evt) {
+document.querySelector('#upload-submit').addEventListener('click', function (evt) {
   if (validate() === 'false') {
     evt.preventDefault();
   }
