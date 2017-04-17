@@ -74,8 +74,9 @@ uploadOverlay.querySelector('textarea[name="upload-description"]').addEventListe
 uploadFilterControls.addEventListener('click', function (evt) {
   if (evt.target.tagName === 'INPUT') {
     var className = evt.target.id;
-  } else
+  } else {
     return;
+  }
   className = className.replace('upload-', '');
   removeClassFilterImage();
   filterImagePreview.classList.add(className);
@@ -235,21 +236,22 @@ function removeResizeValue() {
   var plus = uploadResizeControls.querySelector('.upload-resize-controls-button-inc');
   var minus = uploadResizeControls.querySelector('.upload-resize-controls-button-dec');
   var inputResize = uploadResizeControls.querySelector('.upload-resize-controls-value');
-  var inputResizeStep = parseInt(inputResize.attributes.step.value);
-  var inputResizeMaxLenght = parseInt(inputResize.attributes.maxlenght.value);
-  var inputResizeMinLenght = parseInt(inputResize.attributes.minlength.value);
+  var inputResizeStep = parseInt(inputResize.attributes.step.value, 10);
+  var inputResizeMaxLenght = parseInt(inputResize.attributes.maxlenght.value, 10);
+  var inputResizeMinLenght = parseInt(inputResize.attributes.minlength.value, 10);
 
   uploadResizeControls.addEventListener('click', function (evt) {
     var target = evt.target;
-    var targetValue = parseInt(inputResize.value);
+    var targetValue = parseInt(inputResize.value, 10);
     if (target === plus && targetValue < inputResizeMaxLenght) {
       targetValue = targetValue + inputResizeStep;
       inputResize.value = targetValue + '%';
     } else if (target === minus && targetValue > inputResizeMinLenght) {
       targetValue = targetValue - inputResizeStep;
       inputResize.value = targetValue + '%';
-    } else
+    } else {
       return;
+    }
     filterImagePreview.style.transform = 'scale(' + targetValue / 100 + ')';
   });
 })();
@@ -261,6 +263,7 @@ function validate() {
       formTextarea.style.outline = '';
     }, 1000);
     return false;
-  } else
+  } else {
     return true;
+  }
 }
