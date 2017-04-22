@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
   var uploadSelectImage = document.getElementById('upload-select-image'); // форма загрузки фотографии
   var uploadFile = uploadSelectImage.querySelector('#upload-file'); // input type="file"
