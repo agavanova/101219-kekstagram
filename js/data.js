@@ -14,15 +14,15 @@ window.data = (function () {
   function getComments() {
     return comments;
   }
-  function getrandomUrl () {
+  function getrandomUrl() {
     return randomUrl;
   }
-  function getrandomLikes () {
+  function getrandomLikes() {
     return randomLikes;
   }
   return {
     getComments: getComments,
     getrandomUrl: getrandomUrl,
-    getrandomLikes: getrandomLikes    
+    getrandomLikes: getrandomLikes
   };
 })();
