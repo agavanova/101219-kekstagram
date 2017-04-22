@@ -7,6 +7,7 @@ var galleryOverlayClose = galleryOverlay.querySelector('.gallery-overlay-close')
 var uploadSelectImage = document.getElementById('upload-select-image'); // форма загрузки фотографии
 var uploadFile = uploadSelectImage.querySelector('#upload-file'); // input type="file"
 var uploadOverlay = document.querySelector('.upload-overlay'); // скрытое окно с фильтрами
+var uploadFilterControls = document.querySelector('.upload-filter-controls'); // контейнер со всеми фильтрами
 
 var userComments = [
   'Всё отлично!',
