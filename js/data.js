@@ -9,12 +9,20 @@ window.data = (function () {
     'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
     'Лица у людей на фотке перекошены, как-будто их избивают. Как можно было поймать такой неудачный момент?!'
   ];
-  
+  var randomUrl = window.utils.fillTheArray(1, 25).sort(window.utils.sortMethod); // заполняем массив значениями от min до max
+  var randomLikes = window.utils.fillTheArray(15, 200).sort(window.utils.sortMethod);
   function getComments() {
     return comments;
   }
-  
+  function getrandomUrl () {
+    return randomUrl;
+  }
+  function getrandomLikes () {
+    return randomLikes;
+  }
   return {
-    getComments: getComments
+    getComments: getComments,
+    getrandomUrl: getrandomUrl,
+    getrandomLikes: getrandomLikes    
   };
 })();

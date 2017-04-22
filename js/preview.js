@@ -18,9 +18,9 @@ window.preview = function () {
   Array.prototype.forEach.call(photos, function (photo) {
     photo.addEventListener('click', function (evt) {
       evt.preventDefault();
-      galleryOverlay.querySelector('.gallery-overlay-image').src = this.data.url; // записываем урл фотографии по дефолту
-      galleryOverlay.querySelector('.likes-count').textContent = this.data.likes; // записываем количество лайков по дефолту
-      galleryOverlay.querySelector('.comments-count').innerHTML = this.data.comments.length; // записываем комментарии к фото по дефолту
+      galleryOverlay.querySelector('.gallery-overlay-image').src = photo.data.url; // записываем урл фотографии по дефолту
+      galleryOverlay.querySelector('.likes-count').textContent = photo.data.likes; // записываем количество лайков по дефолту
+      galleryOverlay.querySelector('.comments-count').innerHTML = photo.data.comments.length; // записываем комментарии к фото по дефолту
       // Вставка комментариев в модальнике
       // var commentListNode = galleryOverlay.querySelector('.gallery-overlay-controls-comments');
       // photos[0].comments.forEach(function(comment) {
