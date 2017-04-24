@@ -8,6 +8,10 @@
   var filterImagePreview = document.querySelector('.filter-image-preview');
   var uploadResizeControls = uploadOverlay.querySelector('.upload-resize-controls'); // форма с кнопками ресайза картинки
   var formTextarea = document.forms['upload-filter']['upload-description'];
+  var slider = document.querySelector('.upload-filter-level-line');
+  var item = slider.querySelector('.upload-filter-level-pin');
+  var value = slider.querySelector('.upload-filter-level-val');
+  var filterWraper = document.querySelector('.upload-filter-level');
 
   uploadFile.addEventListener('change', function (evt) {
     if (uploadFile.value !== '') {
@@ -42,6 +46,7 @@
     className = className.replace('upload-', '');
     removeClassFilterImage();
     filterImagePreview.classList.add(className);
+    uploadFilterControls.currentFilterName = className;
   });
 
   document.querySelector('#upload-submit').addEventListener('click', function (evt) {
@@ -53,6 +58,7 @@
   function openUploadPopap() {
     uploadOverlay.classList.remove('invisible');
     document.addEventListener('keydown', onUploadPopapEscPress);
+    window.slider();
   }
 
   function closeUploadPopap() {
@@ -60,6 +66,7 @@
     document.removeEventListener('keydown', onUploadPopapEscPress);
     removeClassFilterImage();
     removeResizeValue();
+    defaultFilterValue();
   }
 
   function onUploadPopapEscPress(evt) { // при нажатии esc закрываем окно
@@ -115,5 +122,12 @@
     } else {
       return true;
     }
+  }
+  
+  function defaultFilterValue(){
+    item.style.left = item.defaultSliderCoords + 'px';
+    value.style.width = item.defaultSliderCoords + 'px';
+    filterImagePreview.style.filter = '';
+    filterWraper.classList.add('hidden');
   }
 })();
