@@ -80,7 +80,7 @@ window.slider = function () {
     }
   }
 
-  function defaultFilterValue () {
+  function defaultFilterValue() {
     item.style.left = defaultCoords + 'px';
     value.style.width = defaultCoords + 'px';
     filterImagePreview.style.filter = '';
