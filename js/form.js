@@ -123,8 +123,7 @@
       return true;
     }
   }
-  
-  function defaultFilterValue(){
+  function defaultFilterValue (){
     item.style.left = item.defaultSliderCoords + 'px';
     value.style.width = item.defaultSliderCoords + 'px';
     filterImagePreview.style.filter = '';

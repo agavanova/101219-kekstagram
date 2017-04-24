@@ -14,8 +14,8 @@ window.slider = function () {
   sliderCoords.left = sliderClientCoords.left + pageXOffset;
 
   var newLeftPosition;
-  var itemCoords = item.getBoundingClientRect();
-  var defaultCoords = itemCoords.left - sliderCoords.left + item.offsetWidth / 2; // дефолтные координаты ползунка
+  var Coords = item.getBoundingClientRect();
+  var defaultCoords = Coords.left - sliderCoords.left + item.offsetWidth / 2; // дефолтные координаты ползунка
   item.defaultSliderCoords = defaultCoords;
 
   uploadFilterControls.addEventListener('click', function (evt) {
@@ -40,10 +40,12 @@ window.slider = function () {
     document.onmousemove = function (evt) {
       evt.preventDefault();
       newLeftPosition = evt.pageX - sliderCoords.left - shiftX;
-      if (newLeftPosition < 0)
+      if (newLeftPosition < 0) {
         newLeftPosition = 0;
-      if (newLeftPosition > right)
+      }
+      if (newLeftPosition > right) {
         newLeftPosition = right;
+      }
       item.style.left = newLeftPosition + 'px';
       value.style.width = newLeftPosition + 'px';
       document.onmouseup = function () {
@@ -70,20 +72,18 @@ window.slider = function () {
       return false;
     };
   };
-  function calculateSliderValue(min, max, value) {
-    if (value === 0) {
+  function calculateSliderValue(min, max, valueCalculate) {
+    if (valueCalculate === 0) {
       return min;
     } else {
-      return value * ((max - min) / (slider.offsetWidth - item.offsetWidth / 2));
+      return valueCalculate * ((max - min) / (slider.offsetWidth - item.offsetWidth / 2));
     }
   }
-  
-  function defaultFilterValue() {
+
+  function defaultFilterValue () {
     item.style.left = defaultCoords + 'px';
     value.style.width = defaultCoords + 'px';
     filterImagePreview.style.filter = '';
-
-    debugger
     if (uploadFilterControls.currentFilterName === 'filter-none') {
       filterWraper.classList.add('hidden');
     } else {
