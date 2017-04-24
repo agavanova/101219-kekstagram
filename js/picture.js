@@ -4,9 +4,6 @@ window.picture = function () {
   var pictureTemplate = document.getElementById('picture-template').content; // находим шаблон для фото
   var photoList = document.querySelector('.pictures'); // находим контейнер, в который потом вставим фрагмент с фотографиями
 
-  var randomUrl = window.utils.fillTheArray(1, 25).sort(window.utils.sortMethod); // заполняем массив значениями от min до max
-  var randomLikes = window.utils.fillTheArray(15, 200).sort(window.utils.sortMethod);
-
   var photos = generatePhotos(); // массив с объектами
   var fragmentPhotos = document.createDocumentFragment(); // создаем фрагмент для вставки. Фрагмент начинается со первого индекса, нулевой вставляется по дефолду
 
@@ -21,10 +18,10 @@ window.picture = function () {
   function generatePhotos() {
     var descriptionPhotos = []; // массив рандомно созданных обьектов
 
-    for (var i = 0; i <= randomUrl.length - 1; i++) {
+    for (var i = 0; i <= window.data.getrandomUrl().length - 1; i++) {
       var photoObject = {
-        url: './photos/' + randomUrl[i] + '.jpg',
-        likes: randomLikes[i],
+        url: './photos/' + window.data.getrandomUrl()[i] + '.jpg',
+        likes: window.data.getrandomLikes()[i],
         comments: getRandomComments()
       };
 
