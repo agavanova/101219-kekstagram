@@ -89,16 +89,18 @@
     var minusButton = uploadResizeControls.querySelector('.upload-resize-controls-button-dec');
 
     plusButton.addEventListener('click', function (evt) {
-      debugger
       window.initializeScale(evt.target, ajustScale);
     });
 
     minusButton.addEventListener('click', function (evt) {
-       debugger
       window.initializeScale(evt.target, ajustScale);
     });
   })();
-
+  
+  function removeClassFilterImage() {
+    debugger;
+    filterImagePreview.classList.remove(uploadFilterControls.currentFilterName);
+  }
 
   function ajustScale(scaleValue) {
     filterImagePreview.style.transform = 'scale(' + scaleValue / 100 + ')';
