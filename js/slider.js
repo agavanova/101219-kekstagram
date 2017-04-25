@@ -77,18 +77,18 @@ window.slider = function () {
       return value * ((max - min) / (slider.offsetWidth - item.offsetWidth / 2));
     }
   }
-  
+
   function defaultFilterValue() {
     item.style.left = defaultCoords + 'px';
     value.style.width = defaultCoords + 'px';
     filterImagePreview.style.filter = '';
-
-    debugger
+    
     if (uploadFilterControls.currentFilterName === 'filter-none') {
       filterWraper.classList.add('hidden');
     } else {
       filterWraper.classList.remove('hidden');
     }
+   
     switch (uploadFilterControls.currentFilterName) {
       case 'filter-chrome':
         filterImagePreview.style.filter = 'grayscale(' + calculateSliderValue(0, 1, defaultCoords) + ')';
