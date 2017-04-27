@@ -22,13 +22,14 @@ window.preview = function () {
       galleryOverlay.querySelector('.likes-count').textContent = photo.data.likes; // записываем количество лайков по дефолту
       galleryOverlay.querySelector('.comments-count').innerHTML = photo.data.comments.length; // записываем комментарии к фото по дефолту
       // Вставка комментариев в модальнике
-      // var commentListNode = galleryOverlay.querySelector('.gallery-overlay-controls-comments');
-      // photos[0].comments.forEach(function(comment) {
-      //  var commentNode = document.createElement('div');
-      //  commentNode.classList.add('picture-comment');
-      //  commentNode.innerText = comment;
-      //  commentListNode.insertBefore(commentNode, commentListNode.querySelector('.comments-count'));
-      // });
+      var commentListNode = galleryOverlay.querySelector('.gallery-overlay-controls-comments');
+      debugger
+      photo.data.comments.forEach(function (comment, i) {
+        var commentNode = document.createElement('div');
+        commentNode.classList.add('picture-comment');
+        commentNode.innerText = ++i + '.  ' + comment;
+        commentListNode.insertBefore(commentNode, commentListNode.querySelector('.comments-count'));
+      });
       openModal();
     });
   });
