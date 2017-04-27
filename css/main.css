@@ -809,3 +809,25 @@ input[type=radio]:checked + .upload-filter-label .upload-filter-preview {
 .footer-social-item-vk {
   background-position: -84px 0;
 }
+.picture-comment {    
+    padding: 5px 10px 5px 10px;
+    line-height: 25px;
+    font-weight: normal;
+}
+.picture-comment:nth-child(even){
+    background-color: #dddddd;
+}
+.errorMessage {
+    display: block;
+    top: 30%; 
+    left:50%; 
+    position: fixed;
+    padding: 30px; 
+    transform: translateX(-50%); 
+    background-color: white; 
+    color: black; 
+    font-size: 16px; 
+    text-align: center;
+    border: solid 1px red;    
+    z-index: 500;  
+}
