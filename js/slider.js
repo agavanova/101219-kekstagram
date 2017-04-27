@@ -40,10 +40,12 @@ window.slider = function () {
     document.onmousemove = function (evt) {
       evt.preventDefault();
       newLeftPosition = evt.pageX - sliderCoords.left - shiftX;
+
       if (newLeftPosition < 0)
         newLeftPosition = 0;
       if (newLeftPosition > right)
         newLeftPosition = right;
+      
       item.style.left = newLeftPosition + 'px';
       value.style.width = newLeftPosition + 'px';
       document.onmouseup = function () {
@@ -70,6 +72,7 @@ window.slider = function () {
       return false;
     };
   };
+
   function calculateSliderValue(min, max, value) {
     if (value === 0) {
       return min;
@@ -82,13 +85,13 @@ window.slider = function () {
     item.style.left = defaultCoords + 'px';
     value.style.width = defaultCoords + 'px';
     filterImagePreview.style.filter = '';
-    
+
     if (uploadFilterControls.currentFilterName === 'filter-none') {
       filterWraper.classList.add('hidden');
     } else {
       filterWraper.classList.remove('hidden');
     }
-   
+
     switch (uploadFilterControls.currentFilterName) {
       case 'filter-chrome':
         filterImagePreview.style.filter = 'grayscale(' + calculateSliderValue(0, 1, defaultCoords) + ')';
