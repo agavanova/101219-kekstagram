@@ -2,7 +2,7 @@
 
 (function () {
   var url = 'https://intensive-javascript-server-kjgvxfepjl.now.sh/kekstagram/data';
-  
+
   window.load(url, onLoad, onError);
 
   function onLoad(data) {
@@ -13,8 +13,8 @@
 
   function onError(errorMessage) {
     var node = document.createElement('div');
-    node.classList.add('errorMessage');    
+    node.classList.add('errorMessage');
     node.textContent = 'WTF? ' + errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
-  }  
+  }
 })();

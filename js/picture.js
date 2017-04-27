@@ -28,6 +28,6 @@ window.picture = function () {
   }
   return {
     insertPhotosFragment: insertPhotosFragment,
-    insertPhotosSite: insertPhotosSite    
+    insertPhotosSite: insertPhotosSite
   };
 };

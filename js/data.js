@@ -20,7 +20,7 @@ window.data = (function () {
   function getrandomLikes() {
     return randomLikes;
   }
-  
+
   return {
     getComments: getComments,
     getrandomUrl: getrandomUrl,
