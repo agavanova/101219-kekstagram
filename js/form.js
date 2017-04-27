@@ -12,7 +12,6 @@
   var slider = document.querySelector('.upload-filter-level-line');
   var item = slider.querySelector('.upload-filter-level-pin');
   var value = slider.querySelector('.upload-filter-level-val');
-  var filterWraper = document.querySelector('.upload-filter-level');
   var inputResizeValue = uploadResizeControls.querySelector('.upload-resize-controls-value');
 
   uploadFile.addEventListener('change', function (evt) {
@@ -98,7 +97,6 @@
   })();
 
   function removeClassFilterImage() {
-    debugger;
     filterImagePreview.classList.remove(uploadFilterControls.currentFilterName);
   }
 
@@ -127,6 +125,3 @@
     filterWraper.classList.add('hidden');
   }
 })();
-
-
-

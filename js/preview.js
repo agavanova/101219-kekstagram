@@ -23,7 +23,6 @@ window.preview = function () {
       galleryOverlay.querySelector('.comments-count').innerHTML = photo.data.comments.length; // записываем комментарии к фото по дефолту
       // Вставка комментариев в модальнике
       var commentListNode = galleryOverlay.querySelector('.gallery-overlay-controls-comments');
-      debugger
       photo.data.comments.forEach(function (comment, i) {
         var commentNode = document.createElement('div');
         commentNode.classList.add('picture-comment');
