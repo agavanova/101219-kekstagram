@@ -96,7 +96,7 @@
       window.initializeScale(evt.target, ajustScale);
     });
   })();
-  
+
   function removeClassFilterImage() {
     debugger;
     filterImagePreview.classList.remove(uploadFilterControls.currentFilterName);
