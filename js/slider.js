@@ -46,6 +46,7 @@ window.slider = function () {
       if (newLeftPosition > right) {
         newLeftPosition = right;
       }
+
       item.style.left = newLeftPosition + 'px';
       value.style.width = newLeftPosition + 'px';
       document.onmouseup = function () {
@@ -72,6 +73,7 @@ window.slider = function () {
       return false;
     };
   };
+
   function calculateSliderValue(min, max, valueSlider) {
     if (valueSlider === 0) {
       return min;
