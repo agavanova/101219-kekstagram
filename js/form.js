@@ -44,11 +44,6 @@
     } else {
       return;
     }
-
-    className = className.replace('upload-', '');
-    removeClassFilterImage();
-    filterImagePreview.classList.add(className);
-    uploadFilterControls.currentFilterName = className;
   });
 
   document.querySelector('#upload-submit').addEventListener('click', function (evt) {
