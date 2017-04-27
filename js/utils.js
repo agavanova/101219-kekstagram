@@ -19,9 +19,23 @@ window.utils = (function () {
     return rand;
   }
 
+  function randomElements(elements) {
+    var getRandomElements = elements.slice().sort(sortMethod).slice(0, 10);
+    return getRandomElements;
+  }
+
+  function clearElements(elements, wrapper) {
+    var allElements = wrapper.querySelectorAll(elements);
+    for (var i = 0; i < allElements.length; i++) {
+      allElements[i].parentNode.removeChild(allElements[i]);
+    }
+  }
+
   return {
     fillTheArray: fillTheArray,
     sortMethod: sortMethod,
-    getRandomNumber: getRandomNumber
+    getRandomNumber: getRandomNumber,
+    randomElements: randomElements,
+    clearElements: clearElements
   };
 })();
