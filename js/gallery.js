@@ -10,9 +10,9 @@
 
   fitersForm.addEventListener('click', function (evt) {
     var target = evt.target;
-    
+
     clearOldPhotos();
-    
+
     switch (target.id) {
       case 'filter-popular':
         window.debounce(showDefaultPhoto);
@@ -57,7 +57,7 @@
 
   function showDiscussedPictures() {
     var copyDefaultData = defaultData.slice();
-    copyDefaultData = renderPictures(copyDefaultData.sort(sortNumberDescending));
+    renderPictures(copyDefaultData.sort(sortNumberDescending));
     window.preview();
   }
 

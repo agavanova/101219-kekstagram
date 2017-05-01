@@ -36,8 +36,6 @@ window.preview = function () {
     });
   });
 
-
-
   function openModal() {
     galleryOverlay.classList.remove('invisible'); // открываем фото по дефолту
     document.addEventListener('keydown', onPopupEscPress);
