@@ -16,7 +16,7 @@
 
   uploadFile.addEventListener('change', function (evt) {
     if (uploadFile.value !== '') {
-      openUploadPopap();
+      openUploadPopup();
     }
     return;
   });
@@ -28,7 +28,7 @@
   });
 
   document.getElementById('upload-cancel').addEventListener('click', function () { // кликаем на закрытие окна с фильтрами, открывается окно загрузки файла
-    closeUploadPopap();
+    closeUploadPopup();
     uploadFile.click();
   });
 
@@ -52,13 +52,13 @@
     }
   });
 
-  function openUploadPopap() {
+  function openUploadPopup() {
     uploadOverlay.classList.remove('invisible');
     document.addEventListener('keydown', onUploadPopapEscPress);
     window.slider();
   }
 
-  function closeUploadPopap() {
+  function closeUploadPopup() {
     uploadOverlay.classList.add('invisible');
     document.removeEventListener('keydown', onUploadPopapEscPress);
     removeClassFilterImage();
@@ -68,7 +68,7 @@
 
   function onUploadPopapEscPress(evt) { // при нажатии esc закрываем окно
     if (evt.keyCode === 27) {
-      closeUploadPopap();
+      closeUploadPopup();
     }
   }
 

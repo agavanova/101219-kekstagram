@@ -6,13 +6,11 @@ window.initializeFilters = function (targetElement, cb) {
 
   var target = targetElement.target;
 
-  if (target.tagName === 'INPUT') {
-    var newFilter = target.id.replace('upload-', '');
-    uploadFilterControls.currentFilterName = newFilter;
+  var newFilter = target.id.replace('upload-', '');
+  uploadFilterControls.currentFilterName = newFilter;
 
-    if (filterImagePreview.classList[1]) {
-      var oldFilter = filterImagePreview.classList[1];
-    }
-    cb(newFilter, oldFilter);
+  if (filterImagePreview.classList.length > 1) {
+    var oldFilter = filterImagePreview.classList[1];
   }
+  cb(newFilter, oldFilter);
 };

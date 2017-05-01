@@ -10,17 +10,17 @@
 
   fitersForm.addEventListener('click', function (evt) {
     var target = evt.target;
+    
+    clearOldPhotos();
+    
     switch (target.id) {
       case 'filter-popular':
-        clearOldPhotos();
         window.debounce(showDefaultPhoto);
         break;
       case 'filter-new':
-        clearOldPhotos();
         window.debounce(showNewPictures);
         break;
       case 'filter-discussed':
-        clearOldPhotos();
         window.debounce(showDiscussedPictures);
         break;
     }
@@ -31,7 +31,6 @@
     window.preview();
     filtersFormShow();
     defaultData = data;
-    return defaultData;
   }
 
   function onError(errorMessage) {
@@ -47,24 +46,24 @@
 
   function showDefaultPhoto() {
     renderPictures(defaultData);
+    window.preview();
   }
 
   function showNewPictures() {
     var randomElements = window.utils.randomElements(defaultData);
     renderPictures(randomElements);
-    window.hangClickOnThePictures(randomElements);
+    window.preview();
   }
 
   function showDiscussedPictures() {
     var copyDefaultData = defaultData.slice();
     copyDefaultData = renderPictures(copyDefaultData.sort(sortNumberDescending));
-    window.hangClickOnThePictures(copyDefaultData);
+    window.preview();
   }
 
   function renderPictures(data) {
     var insertPhotosFragment = window.picture().insertPhotosFragment(data);
     window.picture().insertPhotosSite(insertPhotosFragment);
-    window.preview();
   }
 
   function sortNumberDescending(left, right) {

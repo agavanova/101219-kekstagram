@@ -22,8 +22,6 @@ window.picture = function () {
     photoElement.querySelector('.picture img').src = photo.url; // записываем урл фотографии
     photoElement.querySelector('.picture-likes').textContent = photo.likes; // записываем количество лайков
     photoElement.querySelector('.picture-comments').textContent = photo.comments.length;
-    // photoElement.querySelector('IMG').setAttribute('data-id', id);
-    // photoElement.querySelector('IMG').setAttribute('tabindex', 0);
     return photoElement;
   }
   return {

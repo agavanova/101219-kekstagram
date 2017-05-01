@@ -1,7 +1,7 @@
 'use strict';
 
 window.preview = function () {
-  var photos = document.querySelectorAll('.picture');
+  var photoNodeList = document.querySelectorAll('.picture');
   var galleryOverlay = document.querySelector('.gallery-overlay'); // находим модальное окно с увеличенным фото
   var galleryOverlayClose = galleryOverlay.querySelector('.gallery-overlay-close');
   var commentListNode = galleryOverlay.querySelector('.gallery-overlay-controls-comments');
@@ -16,23 +16,26 @@ window.preview = function () {
     }
   });
 
+  photoNodeList.forEach(function (photoNode) {
+    photoNode.addEventListener('click', function (e) {
+      e.preventDefault();
 
-  window.hangClickOnThePictures = Array.prototype.forEach.call(photos, function (photo) {
-    photo.addEventListener('click', function (evt) {
-      evt.preventDefault();
-      galleryOverlay.querySelector('.gallery-overlay-image').src = photo.data.url; // записываем урл фотографии по дефолту
-      galleryOverlay.querySelector('.likes-count').textContent = photo.data.likes; // записываем количество лайков по дефолту
-      galleryOverlay.querySelector('.comments-count').innerHTML = photo.data.comments.length; // записываем комментарии к фото по дефолту
+      galleryOverlay.querySelector('.gallery-overlay-image').src = photoNode.data.url; // записываем урл фотографии по дефолту
+      galleryOverlay.querySelector('.likes-count').textContent = photoNode.data.likes; // записываем количество лайков по дефолту
+      galleryOverlay.querySelector('.comments-count').innerHTML = photoNode.data.comments.length; // записываем комментарии к фото по дефолту
+
       // Вставка комментариев в модальнике
-      photo.data.comments.forEach(function (comment, i) {
+      photoNode.data.comments.forEach(function (comment, i) {
         var commentNode = document.createElement('div');
         commentNode.classList.add('picture-comment');
         commentNode.innerText = ++i + '.  ' + comment;
         commentListNode.insertBefore(commentNode, commentListNode.querySelector('.comments-count'));
       });
+
       openModal();
     });
   });
+
 
 
   function openModal() {

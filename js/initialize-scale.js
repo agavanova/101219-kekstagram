@@ -5,18 +5,26 @@ window.initializeScale = function (targetElement, cb) {
   var plusButton = uploadResizeControls.querySelector('.upload-resize-controls-button-inc');
   var minusButton = uploadResizeControls.querySelector('.upload-resize-controls-button-dec');
   var inputResizeValue = uploadResizeControls.querySelector('.upload-resize-controls-value');
+
   var step = parseInt(inputResizeValue.attributes.step.value, 10);
-  var MaxValue = parseInt(inputResizeValue.attributes.maxlenght.value, 10);
-  var MinValue = parseInt(inputResizeValue.attributes.minlength.value, 10);
+  var maxValue = parseInt(inputResizeValue.attributes.maxlenght.value, 10);
+  var minValue = parseInt(inputResizeValue.attributes.minlength.value, 10);
 
-  var scaleValue = parseInt(inputResizeValue.value, 10);
+  var currentScaleValue = parseInt(inputResizeValue.value, 10);
+  var nextScaleValue = currentScaleValue;
 
-  if (targetElement === plusButton && scaleValue < MaxValue) {
-    scaleValue = scaleValue + step;
-  } else if (targetElement === minusButton && scaleValue > MinValue) {
-    scaleValue = scaleValue - step;
-  } else {
-    return;
+  // если нажали +
+  if (targetElement === plusButton && currentScaleValue < maxValue) {
+    nextScaleValue = currentScaleValue + step;
   }
-  cb(scaleValue);
+
+  // если нажали -
+  if (targetElement === minusButton && currentScaleValue > minValue) {
+    nextScaleValue = currentScaleValue - step;
+  }
+
+  // если значение такое же, то ререндера не будет
+  if (currentScaleValue !== nextScaleValue) {
+    cb(nextScaleValue);
+  }
 };

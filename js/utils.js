@@ -24,11 +24,14 @@ window.utils = (function () {
     return getRandomElements;
   }
 
-  function clearElements(elements, wrapper) {
-    var allElements = wrapper.querySelectorAll(elements);
-    for (var i = 0; i < allElements.length; i++) {
-      allElements[i].parentNode.removeChild(allElements[i]);
-    }
+  /**
+   * @param {string} elementsSelector
+   * @param {HTMLElement} wrapperNode
+   */
+  function clearElements(elementsSelector, wrapperNode) {
+    wrapperNode.querySelectorAll(elementsSelector).forEach(function (node) {
+      node.remove();
+    });
   }
 
   return {
